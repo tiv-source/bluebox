@@ -153,32 +153,37 @@ class i18n
      */
     public function translate($message = NULL)
     {
-        //preform translation
+        // preform translation
         $session = Session::instance();
 
+        // get locale
         $lang = $session->get('lang', 'en');
 
-        if (!empty($message) && $lang != 'en')
+        // not empty
+        if (!empty($message))
         {
-            if (class_exists('RosettaManager'))
-            {
-                try
-                {
-                    $r = RosettaManager::instance();
-
-                    $msg = $r->setTo($lang)->translate($message);
-
-                    if (!empty($msg))
-                    {
-                        return $msg;
-                    }
-                }
-                catch(exception $e)
-                {
-                }
-            }
+        	// module loaded
+        	if (class_exists('TranslationManager'))
+        	{
+        		try
+        		{
+        			// get instance
+        			$r = TranslationManager::instance();
+        			// try to translate
+        			$msg = $r->setTo($lang)->translate($message);
+        			// if translation there return
+        			if (!empty($msg))
+        			{
+        				return $msg;
+        			}
+        		}
+        		catch(exception $e)
+        		{
+        		}
+        	}
         }
-        
+
+        // if no translation there
         return $message;
     }
     
