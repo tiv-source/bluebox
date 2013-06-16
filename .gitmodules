@@ -1,7 +1,6 @@
-[submodule "modules/endpointmanager-1.1/libraries"]
-	path = modules/endpointmanager-1.1/libraries
-	url = git://github.com/tm1000/Provisioner.git
-
-[submodule "modules/provisioner-1.1/libraries"]
-	path = modules/provisioner-1.1/libraries
+[submodule "modules/translation-0.1/libraries/flintstone"]
+	path = modules/translation-0.1/libraries/flintstone
+	url = git://github.com/tiv-source/flintstone.git
+[submodule "modules/endpointmanager-1.2/libraries"]
+	path = modules/endpointmanager-1.2/libraries
 	url = git://github.com/tm1000/Provisioner.git
